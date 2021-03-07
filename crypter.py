@@ -1,14 +1,16 @@
 #!/usr/bin/env pypy3
 import base64, sys, random, zlib, argparse
 from tqdm import tqdm
+
 parser = argparse.ArgumentParser()
-parser.add_argument("mode")
-parser.add_argument("file")
-parser.add_argument("cycles", type=int)
-parser.add_argument("cipher")
+parser.add_argument("mode", help="program mode, possible values: encrypt, decrypt, enc, dec, e, and d")
+parser.add_argument("file", help="file to encrypt/decrypt")
+parser.add_argument("cycles", help="encryption complexity", type=int)
+parser.add_argument("cipher", help="encryption cipher, or password")
 args = parser.parse_args()
 e = ["encrypt", "enc", "e"]
 d = ["decrypt", "dec", "d"]
+
 methods = {
     "b64": {
         "encode": base64.b64encode,
@@ -31,7 +33,9 @@ methods = {
         "decode": base64.b85decode
     },
 }
+
 random.seed(args.cipher)
+
 if args.mode in e:
     file = open(args.file, "rb")
     file_content = file.read()
