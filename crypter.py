@@ -2,8 +2,8 @@
 import base64, sys, random, zlib, argparse
 from tqdm import tqdm
 
-parser = argparse.ArgumentParser()
-parser.add_argument("mode", help="program mode, possible values: encrypt, decrypt, enc, dec, e, and d")
+parser = argparse.ArgumentParser(description='Encrypt/decrypt files and dump the result to stdout.')
+parser.add_argument("mode", help="program mode, possible values are: encrypt, decrypt, enc, dec, e, and d")
 parser.add_argument("file", help="file to encrypt/decrypt")
 parser.add_argument("cycles", help="encryption complexity", type=int)
 parser.add_argument("cipher", help="encryption cipher, or password")
