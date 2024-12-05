@@ -3,4 +3,4 @@ install:
 		chmod +x /usr/local/bin/crypter
 
 uninstall:
-		rm -rf /usr/local/bin/crypter
+		rm -f /usr/local/bin/crypter
